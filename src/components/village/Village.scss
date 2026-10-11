@@ -1,0 +1,29 @@
+$night: #04060a;
+
+.village {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: $night;
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% 50%; // telefonda oy, ko'lmak va uy ko'rinib turishi uchun
+        image-rendering: crisp-edges;
+        image-rendering: pixelated; // qo'llab-quvvatlansa shu ustun bo'ladi
+    }
+
+    // chetlarni qorong'ilashtirish (vignette)
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.6);
+    }
+}
