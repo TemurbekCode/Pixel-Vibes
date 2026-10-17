@@ -1,0 +1,29 @@
+$bg: #0b1014;
+
+.street {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: $bg;
+
+  &__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; // sahna kvadrat, shuning uchun to'liq ko'rinadi
+    // butun ekranni to'ldirish uchun: object-fit: cover; object-position: 50% 60%;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated; // qo'llab-quvvatlansa shu ustun bo'ladi
+  }
+
+  // chetlarni qorong'ilashtirish (vignette)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.5);
+  }
+}
